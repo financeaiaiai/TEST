@@ -1,0 +1,33 @@
+1 创建本地仓库
+	在需要创建的位置打开git bash
+	创建目录 $ mkdir xxx
+	进入目录 $ cd ./xxx
+	初始化为git仓库 $ git init
+2 将代码存入仓库
+2.1拉取远程代码到本地仓库
+	使用$ git clone “url“
+2.2将本地项目存入仓库
+	使用$ git add . 暂存项目(“.”表示当前目录所有文件)
+	使用$ git commit -m “message” 将代码提交本地仓库
+3 将本地仓库提交远程仓库
+3.1建立本地仓库与远程仓库关联
+	创建SSH key关联
+	在远程（GitHub）创建远程仓库
+	关联本地仓库与远程仓库，使用$ git remote add origin https://***.git 
+3.2推送本地仓库代码至远程仓库
+使用$ git push -u origin master [master应理解为分支名]
+4 获取远程分支最新代码
+	使用$ git fetch origin master
+	或者使用$ git pull origin master
+两者的区别：fetch拉取远程代码，但不会自动合并，即手动合并前可以查看区别，以规避冲突风险；而pull直接拉去代码并自动合并，相当于fetch+merge。
+5 在本地仓库创建分支，并合入远程master
+	使用$ git branch branch_name  创建本地分支
+	使用$ git checkout branch_name  进入本地分支
+	新增目录/文件
+	使用$ git add 和$git commit提交新增文件到本地分支
+	切换到master，使用$ git checkout master
+	拉取master最新代码，使用$ git pull origin master 【为避免冲突，此步骤很关键】
+	合入本地分支，使用$ git merge branch_name
+	将代码推送到远程仓库，使用$ git push origin master
+
+
